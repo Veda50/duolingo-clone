@@ -1,8 +1,36 @@
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import SidebarItem from "./sidebar-item";
+import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs";
+import { Loader } from "lucide-react";
 
 type Props = {
   className?: string;
 };
+
+const sidebarItemList = [
+  {
+    label: "Learn",
+    href: "/learn",
+    iconSrc: "/learn.svg",
+  },
+  {
+    label: "Leaderboard",
+    href: "/leaderboard",
+    iconSrc: "/leaderboard.svg",
+  },
+  {
+    label: "Quests",
+    href: "/quests",
+    iconSrc: "/quests.svg",
+  },
+  {
+    label: "Shop",
+    href: "/shop",
+    iconSrc: "/shop.svg",
+  },
+];
 
 export default function Sidebar({ className }: Props) {
   return (
@@ -12,7 +40,32 @@ export default function Sidebar({ className }: Props) {
         className
       )}
     >
-      Sidebar
+      <Link href="/learn">
+        <div className="pt-8 pl-4 pb-7 flex items-center gap-x-3">
+          <Image src="/mascot.svg" height={40} width={40} alt="Mascot" />
+          <h1 className="text-2xl font-extrabold text-green-600 tracking-wide">
+            Lingo
+          </h1>
+        </div>
+      </Link>
+      <div className="flex flex-col gap-y-2 flex-1">
+        {sidebarItemList.map((item, index) => (
+          <SidebarItem
+            label={item.label}
+            href={item.href}
+            iconSrc={item.iconSrc}
+            key={index}
+          />
+        ))}
+      </div>
+      <div className="p-4">
+        <ClerkLoading>
+          <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
+        </ClerkLoading>
+        <ClerkLoaded>
+          <UserButton />
+        </ClerkLoaded>
+      </div>
     </div>
   );
 }
