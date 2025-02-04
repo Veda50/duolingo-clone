@@ -1,5 +1,5 @@
-import MobileHeader from "@/components/mobile-header";
-import Sidebar from "@/components/sidebar";
+import MobileHeader from "@/components/MobileHeader";
+import Sidebar from "@/components/Sidebar-";
 
 type Props = {
   children: React.ReactNode;

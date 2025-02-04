@@ -1,7 +1,7 @@
-import FeedWrapper from "@/components/feed-wrapper";
-import StickyWrapper from "@/components/sticky-wrapper";
+import FeedWrapper from "@/components/FeedWrapper";
+import StickyWrapper from "@/components/StickyWrapper";
 import Header from "./header";
-import UserProgress from "@/components/user-progress";
+import UserProgress from "@/components/UserProgress";
 
 export default function LearnPage() {
   return (

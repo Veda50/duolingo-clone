@@ -1,6 +1,6 @@
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import Sidebar from "./sidebar";
+import Sidebar from "./Sidebar";
 import { DialogTitle } from "@radix-ui/react-dialog";
 
 export default function MobileSidebar() {
