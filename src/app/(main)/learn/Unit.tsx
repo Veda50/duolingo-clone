@@ -16,6 +16,7 @@ type Props = {
     activeLessonPercentage: number
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function Unit({ id, order, title, description, lessons, activeLesson, activeLessonPercentage}: Props){
     return (
       <>
