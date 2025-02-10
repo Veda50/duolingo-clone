@@ -25,11 +25,12 @@ export const getUserProgress = cache(async () => {
     return data
 })
 
+//  TODO: Confirm wheter order is needed
 export const getUnits = cache(async () => {
     const { userId } = await auth();
     const userProgress = await getUserProgress();
 
-    if (!userProgress?.activeCourseId || !userProgress?.activeCourseId) return []
+    if (!userProgress?.activeCourseId || !userId) return []
 
     const data = await db.query.units.findMany({
         where: eq(units.courseId, userProgress.activeCourseId),
