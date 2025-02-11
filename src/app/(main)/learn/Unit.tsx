@@ -1,3 +1,5 @@
+"use client"
+
 import { lessons, units } from "@/db/schema"
 import UnitBanner from "./UnitBanner"
 import LessonButton from "./LessonButton"
@@ -13,17 +15,20 @@ type Props = {
     activeLesson: typeof lessons.$inferSelect & {
         unit: typeof units.$inferSelect,
     } | undefined,
-    activeLessonPercentage: number
+    activeLessonPercentage: number,
+    courseProgress: unknown
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function Unit({ id, order, title, description, lessons, activeLesson, activeLessonPercentage}: Props){
+export default function Unit({ id, order, title, description, lessons, activeLesson, activeLessonPercentage, courseProgress}: Props){
     return (
       <>
         <UnitBanner title={title} description={description} />
         <div className="flex items-center flex-col relative">
           {lessons.map((lesson, index) => {
             const isCurrent = lesson.id === activeLesson?.id;
+            // console.log(`check:
+            //   \n${JSON.stringify(lesson)}\n${activeLesson}\n${JSON.stringify(courseProgress)}`)
             const isLocked = !lesson.completed && !isCurrent;
 
             return (

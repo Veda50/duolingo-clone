@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn } from "@/scripts/lib/utils";
 import { Check, Crown, Star } from "lucide-react";
 import Link from "next/link";
 
@@ -49,10 +49,6 @@ export default function LessonButton({
 
   const Icon = isCompleted ? Check : isLast ? Crown : Star;
   const href = isCompleted ? `/lesson/${id}` : "/lesson";
-
-//   TEST for display
-current = isFirst
-locked = !isFirst
 
   return (
     <Link
