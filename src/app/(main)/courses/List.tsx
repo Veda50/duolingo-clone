@@ -5,6 +5,7 @@ import Card from "./Card";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { upsertUserProgress } from "@/actions/user-progress";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { toast } from "sonner";
 
 type Props = {
@@ -22,9 +23,9 @@ export default function List({ courses, activeCourseId }: Props) {
     if(id === activeCourseId) return router.push("/learn")
 
       startTransistion(() => {
-        upsertUserProgress(id).catch(() =>
-          toast.error("Something went wrong.")
-        );
+        upsertUserProgress(id).catch(() => {
+          // toast.error("Something went wrong.")
+        });
       });
   }
 
