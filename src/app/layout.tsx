@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Nunito } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner";
+import ExitModal from "@/components/modals/ExitModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} ${nunito.className} antialiased`}
         >
           <Toaster />
+          <ExitModal />
           {children}
         </body>
       </html>
